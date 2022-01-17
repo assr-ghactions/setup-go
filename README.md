@@ -24,8 +24,8 @@ It will first check the local cache for a version match. If version is not found
 Matching by [semver spec](https://github.com/npm/node-semver):
 ```yaml
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-go@v2
+  - uses: assr-ghactions/checkout@v2
+  - uses: assr-ghactions/setup-go@v2
     with:
       go-version: '^1.13.1' # The Go version to download (if necessary) and use.
   - run: go version
@@ -34,8 +34,8 @@ steps:
 Matching an unstable pre-release:
 ```yaml
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-go@v2
+  - uses: assr-ghactions/checkout@v2
+  - uses: assr-ghactions/setup-go@v2
     with:
       stable: 'false'
       go-version: '1.14.0-rc1' # The Go version to download (if necessary) and use.
@@ -49,8 +49,8 @@ See [action.yml](action.yml)
 Basic:
 ```yaml
 steps:
-  - uses: actions/checkout@master
-  - uses: actions/setup-go@v2
+  - uses: assr-ghactions/checkout@master
+  - uses: assr-ghactions/setup-go@v2
     with:
       go-version: '1.9.3' # The Go version to download (if necessary) and use.
   - run: go run hello.go
@@ -66,9 +66,9 @@ jobs:
         go: [ '1.14', '1.13' ]
     name: Go ${{ matrix.go }} sample
     steps:
-      - uses: actions/checkout@v2
+      - uses: assr-ghactions/checkout@v2
       - name: Setup go
-        uses: actions/setup-go@v2
+        uses: assr-ghactions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
       - run: go run hello.go
